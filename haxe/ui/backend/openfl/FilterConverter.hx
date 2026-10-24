@@ -22,14 +22,14 @@ class FilterConverter {
         
         if ((input is haxe.ui.filters.DropShadow)) {
             var inputDropShadow:haxe.ui.filters.DropShadow = cast(input, haxe.ui.filters.DropShadow);
-            output = new DropShadowFilter(inputDropShadow.distance + 1,
+            output = new DropShadowFilter(inputDropShadow.distance,
                                           inputDropShadow.angle,
                                           inputDropShadow.color,
-                                          .9,
+                                          inputDropShadow.alpha,
                                           inputDropShadow.blurX,
                                           inputDropShadow.blurY,
-                                          1,
-                                          BitmapFilterQuality.HIGH,
+                                          inputDropShadow.strength,
+                                          inputDropShadow.quality,
                                           inputDropShadow.inner);
         } else if ((input is haxe.ui.filters.Blur)) {
             var inputBlur:haxe.ui.filters.Blur = cast(input, haxe.ui.filters.Blur);
